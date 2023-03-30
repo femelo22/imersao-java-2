@@ -1,4 +1,4 @@
-package br.com.lfmelo.aula01;
+package br.com.lfmelo.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,9 +30,9 @@ public class JsonParser {
 
             Matcher matcherAttributesJson = REGEX_ATRIBUTOS_JSON.matcher(item);
             while (matcherAttributesJson.find()) {
-                String atributo = matcherAttributesJson.group(1);
-                String valor = matcherAttributesJson.group(2);
-                itemAttribute.put(atributo, valor);
+                String attribute = matcherAttributesJson.group(1);
+                String value = matcherAttributesJson.group(2);
+                itemAttribute.put(attribute, value);
             }
 
             data.add(itemAttribute);

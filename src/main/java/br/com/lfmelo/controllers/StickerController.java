@@ -1,7 +1,7 @@
 package br.com.lfmelo.controllers;
 
-import br.com.lfmelo.aula02.StickerGeneration;
-import br.com.lfmelo.dtos.StickerDTO;
+import br.com.lfmelo.services.StickerGenerationService;
+import br.com.lfmelo.models.dtos.StickerDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +18,7 @@ public class StickerController {
     @PostMapping("/generate-stickers")
     public ResponseEntity createNewSticker(@RequestBody StickerDTO dto) throws Exception {
 
-        var generation = new StickerGeneration();
+        var generation = new StickerGenerationService();
 
         InputStream inputStream = new URL(dto.getImageURL()).openStream();
 

@@ -1,4 +1,4 @@
-package br.com.lfmelo.dtos;
+package br.com.lfmelo.models.dtos;
 
 public class StickerDTO {
 

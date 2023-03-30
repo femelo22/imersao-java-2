@@ -1,6 +1,6 @@
-package br.com.lfmelo.aula02;
+package br.com.lfmelo.services;
 
-import br.com.lfmelo.dtos.StickerDTO;
+import br.com.lfmelo.models.dtos.StickerDTO;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
 
-public class StickerGeneration {
+public class StickerGenerationService {
 
     public void create(InputStream inputStream, StickerDTO dto) throws Exception {
         BufferedImage originalImage = ImageIO.read(inputStream);
