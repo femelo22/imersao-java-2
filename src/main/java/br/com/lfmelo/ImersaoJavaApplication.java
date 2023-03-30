@@ -8,10 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ImersaoJavaApplication {
 
 	public static void main(String[] args) throws Exception {
-		MovieAPI api = new MovieAPI();
-
-		api.getMovies();
-
 		SpringApplication.run(ImersaoJavaApplication.class, args);
 	}
 

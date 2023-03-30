@@ -15,7 +15,7 @@ import java.net.URL;
 @RequestMapping("/")
 public class StickerController {
 
-    @PostMapping("/generate-sticker")
+    @PostMapping("/generate-stickers")
     public ResponseEntity createNewSticker(@RequestBody StickerDTO dto) throws Exception {
 
         var generation = new StickerGeneration();

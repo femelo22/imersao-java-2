@@ -30,7 +30,7 @@ public class StickerGeneration {
 
         graphics.drawString(dto.getText(), 100, newHeight - 100); // add text
 
-        ImageIO.write(newImage, "png", new File(dto.getOutputPath() + dto.getFileName().concat(".png")));
+        ImageIO.write(newImage, "png", new File(dto.getOutputPath() + "/" + dto.getFileName().concat(".png")));
     }
 
 }

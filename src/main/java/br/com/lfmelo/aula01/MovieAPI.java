@@ -26,16 +26,11 @@ public class MovieAPI {
         var parser = new JsonParser();
         List<Map<String, String>> movieList = parser.parse(body);
 
-        var generateStick = new StickerGeneration();
-
         // display and manipulate the data
         for (Map<String,String> movie : movieList) {
-
-            InputStream inputStream = new URL(movie.get("image")).openStream();
-
-//            generateStick.create(inputStream, dto);
-
             System.out.println(movie.get("title"));
+            System.out.println(movie.get("image"));
+            System.out.println(movie.get("imDbRating"));
             System.out.println();
         }
     }
