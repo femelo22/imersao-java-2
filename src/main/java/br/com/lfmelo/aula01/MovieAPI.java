@@ -1,6 +1,10 @@
 package br.com.lfmelo.aula01;
 
+import br.com.lfmelo.aula02.StickerGeneration;
+
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -22,11 +26,16 @@ public class MovieAPI {
         var parser = new JsonParser();
         List<Map<String, String>> movieList = parser.parse(body);
 
+        var generateStick = new StickerGeneration();
+
         // display and manipulate the data
         for (Map<String,String> movie : movieList) {
+
+            InputStream inputStream = new URL(movie.get("image")).openStream();
+
+//            generateStick.create(inputStream, dto);
+
             System.out.println(movie.get("title"));
-            System.out.println(movie.get("image"));
-            System.out.println(movie.get("imDbRating"));
             System.out.println();
         }
     }
