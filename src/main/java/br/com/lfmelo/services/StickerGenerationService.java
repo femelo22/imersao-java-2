@@ -45,4 +45,35 @@ public class StickerGenerationService {
 
     }
 
+    public void createCenter(InputStream inputStream, StickerDTO dto) {
+
+        try {
+
+            BufferedImage image = ImageIO.read(inputStream);
+
+            Graphics2D graphics = image.createGraphics();
+            Font font = new Font("Arial", Font.BOLD, 64);
+
+            FontMetrics metrics = graphics.getFontMetrics(font);
+
+            int width = image.getWidth();
+            int height = image.getHeight();
+
+            int x = (width - metrics.stringWidth(dto.getText())) / 2;
+            int y = height - 500;
+
+            // draw text in image
+            graphics.setFont(font);
+            graphics.setColor(Color.WHITE);
+            graphics.drawString(dto.getText(), x, y);
+            graphics.dispose();
+
+            ImageIO.write(image, "jpg", new File(dto.getOutputPath() + "/" + dto.getFileName().concat(".png")));
+
+        } catch (Exception ex) {
+            throw new RuntimeException("Error: " + ex.getMessage() + " - " + ex.getLocalizedMessage());
+        }
+
+    }
+
 }

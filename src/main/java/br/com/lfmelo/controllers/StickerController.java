@@ -21,7 +21,9 @@ public class StickerController {
 
         InputStream inputStream = new URL(dto.getImageURL()).openStream();
 
-        generation.create(inputStream, dto);
+//        generation.create(inputStream, dto);
+
+        generation.createCenter(inputStream, dto);
 
         return ResponseEntity.ok().body("Sticker successfully generated.");
     }
