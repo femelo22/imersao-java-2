@@ -1,0 +1,9 @@
+br/com/lfmelo/utils/JsonParser.class
+br/com/lfmelo/models/Content.class
+br/com/lfmelo/services/HttpClientService.class
+br/com/lfmelo/apis/MovieAPI.class
+br/com/lfmelo/services/StickerGenerationService.class
+br/com/lfmelo/ImersaoJavaApplication.class
+br/com/lfmelo/models/dtos/StickerDTO.class
+br/com/lfmelo/utils/PositionValidator.class
+br/com/lfmelo/controllers/StickerController.class
