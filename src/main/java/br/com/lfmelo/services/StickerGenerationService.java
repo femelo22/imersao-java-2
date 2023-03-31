@@ -10,27 +10,39 @@ import java.io.InputStream;
 
 public class StickerGenerationService {
 
-    public void create(InputStream inputStream, StickerDTO dto) throws Exception {
-        BufferedImage originalImage = ImageIO.read(inputStream);
+    public void create(InputStream inputStream, StickerDTO dto) {
 
-        //create a new image with transparency and new dimensions
-        int width = originalImage.getWidth();
-        int height = originalImage.getHeight();
-        int newHeight = height + 200; //add more height
+        try {
+            BufferedImage originalImage = ImageIO.read(inputStream);
 
-        BufferedImage newImage = new BufferedImage(width, newHeight, BufferedImage.TRANSLUCENT);
+            //create a new image with transparency and new dimensions
+            int width = originalImage.getWidth();
+            int height = originalImage.getHeight();
+            int newHeight = height + 200; //add more height
 
-        Graphics2D graphics = newImage.createGraphics();
-        graphics.drawImage(originalImage, 0, 0, null);
+            BufferedImage newImage = new BufferedImage(width, newHeight, BufferedImage.TRANSLUCENT);
 
-        var font = new Font(Font.SANS_SERIF, Font.BOLD, 64);
-        graphics.setFont(font);
+            Graphics2D graphics = newImage.createGraphics();
+            graphics.drawImage(originalImage, 0, 0, null);
 
-        graphics.setColor(Color.yellow);
+            var font = new Font(Font.SANS_SERIF, Font.BOLD, 64);
+            graphics.setFont(font);
 
-        graphics.drawString(dto.getText(), 100, newHeight - 100); // add text
+            graphics.setColor(Color.yellow);
 
-        ImageIO.write(newImage, "png", new File(dto.getOutputPath() + "/" + dto.getFileName().concat(".png")));
+            // center text in image
+            FontMetrics metrics = graphics.getFontMetrics(font);
+            int x = (width - metrics.stringWidth(dto.getText())) / 2;
+            int y = newHeight - 70;
+
+            // draw text in image
+            graphics.drawString(dto.getText(), x, y);
+
+            ImageIO.write(newImage, "png", new File(dto.getOutputPath() + "/" + dto.getFileName().concat(".png")));
+        } catch (Exception ex) {
+            throw new RuntimeException("Error: " + ex.getMessage() + " - " + ex.getLocalizedMessage());
+        }
+
     }
 
 }

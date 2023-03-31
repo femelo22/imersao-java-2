@@ -1,11 +1,17 @@
 package br.com.lfmelo.models.dtos;
 
+import javax.validation.constraints.NotEmpty;
+import java.util.UUID;
+
 public class StickerDTO {
 
+    @NotEmpty(message = "Output path cannot be empty")
     private String outputPath;
 
+    @NotEmpty(message = "Image URL cannot be empty")
     private String imageURL;
 
+    @NotEmpty(message = "Text cannot be empty")
     private String text;
 
     public String fileName;
@@ -35,7 +41,7 @@ public class StickerDTO {
     }
 
     public String getFileName() {
-        return fileName;
+        return fileName == null ? UUID.randomUUID().toString() : fileName;
     }
 
     public void setFileName(String fileName) {
