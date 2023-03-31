@@ -3,6 +3,7 @@ package br.com.lfmelo.controllers;
 import br.com.lfmelo.services.StickerGenerationService;
 import br.com.lfmelo.models.dtos.StickerDTO;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +25,11 @@ public class StickerController {
         generation.createSticker(inputStream, dto);
 
         return ResponseEntity.ok().body("Sticker successfully generated.");
+    }
+
+
+    @GetMapping("/status")
+    public ResponseEntity status() {
+        return ResponseEntity.ok().body("Running..");
     }
 }
