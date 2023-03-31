@@ -1,6 +1,7 @@
 package br.com.lfmelo.services;
 
 import br.com.lfmelo.models.dtos.StickerDTO;
+import br.com.lfmelo.utils.PositionValidator;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,6 +10,20 @@ import java.io.File;
 import java.io.InputStream;
 
 public class StickerGenerationService {
+
+
+    public void createSticker(InputStream inputStream, StickerDTO dto) {
+        //TODO: ADD TOP POSITION
+        String position = PositionValidator.getPosition(dto);
+
+        if(position.equals("MIDDLE")) {
+            createCenter(inputStream, dto);
+        } else {
+            create(inputStream, dto);
+        }
+
+    }
+
 
     public void create(InputStream inputStream, StickerDTO dto) {
 
