@@ -1,7 +1,23 @@
 # Imersão Java
 
-Este repositório conterá o código das aulas da segunda edição da Imersão Java da Alura.
+Stickers generate project, an API for create custom images from images URL.
 
-Serão 5 aulas de programação, gratuitas, para você desenvolver do zero sua primeira aplicação em Java, progredir na carreira e ampliar ou começar o seu portfólio.
+DESIGN API:
 
-Inscreva-se: https://www.alura.com.br/imersao-java 
+[*POST*] http://localhost:8080/generate-stickers
+
+
+```json
+{
+	"outputPath": "/Users/lfmelo/Desktop/Java/imersao-java/src/main/resources/assets",
+	"imageURL": "https://apod.nasa.gov/apod/image/2303/WR124_Webb1024.png",
+	"text": "Minha mente maluuuka",
+	"fileName": "imagem2"
+}
+
+```
+
+- outputPath: Directory where the created images will be stored
+- imageURL: 
+- text: 
+- fileName: 
